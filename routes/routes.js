@@ -14,4 +14,8 @@ router.use("/subject", subjectRouter);
 router.use("/topic", topicRouter);
 router.use("/chapter", chapterRouter);
 
+router.get("/ping", (req, res) => {
+    res.send("pong");
+});
+
 export default router;

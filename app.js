@@ -19,11 +19,6 @@ app.use(express.static("public"));
 // Initiail route for mounting
 app.use("/", routes);
 
-app.get("/ping", (req, res, next) => {
-    res.send("pong");
-    next();
-});
-
 // Error handler for whole app
 app.use(errorHandler);
 
