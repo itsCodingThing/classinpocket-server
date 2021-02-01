@@ -8,6 +8,18 @@ export default class QuestionService {
         return list;
     }
 
+    static async findQuestionsTopicsID(idsList) {
+        let list = [];
+
+        if (Array.isArray(idsList)) {
+            list = await QuestionModel.find({ _id: { $in: idsList } })
+                .select("-__v")
+                .lean();
+        }
+
+        return list;
+    }
+
     static async addNewQuestion({
         categoryID,
         chapterID,

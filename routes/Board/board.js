@@ -20,9 +20,9 @@ boardRouter.get("/all", async (_req, res, next) => {
 // @route POST /board/add
 // @desc Add a new board in database
 // @access Public
-boardRouter.post("/add", async (req, res, next) => {
+boardRouter.post("/add", express.json(), async (req, res, next) => {
     const name = req.body.name;
-    console.log(name);
+    console.log("board app api added", name, req.body);
 
     try {
         await BoardService.addNewBoard(name);
